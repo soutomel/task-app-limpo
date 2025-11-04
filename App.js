@@ -1,20 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
+import { TaskProvider } from './src/TaskContext'; 
+import TaskListScreen from './screens/TaskListScreen';
+import TaskFormScreen from './screens/TaskFormScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <TaskProvider> 
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="TaskList">
+          
+          <Stack.Screen 
+            name="TaskList" 
+            component={TaskListScreen} 
+            options={{ title: 'Minhas Tarefas', headerShown: false }} 
+          />
+          
+          <Stack.Screen 
+            name="TaskForm" 
+            component={TaskFormScreen} 
+            options={{ title: 'Detalhes da Tarefa' }}
+          />
+          
+        </Stack.Navigator>
+      </NavigationContainer>
+    </TaskProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

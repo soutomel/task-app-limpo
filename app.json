@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "task-app-limpo",
-    "slug": "task-app-limpo",
+    "name": "Gerenciador de Tarefas",
+    "slug": "gerenciador-de-tarefas",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
